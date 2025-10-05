@@ -1,0 +1,263 @@
+/* CSS Styles */
+:root {
+    --primary-color: #4a6fa5;
+    --secondary-color: #166088;
+    --background-color: #f5f7fa;
+    --text-color: #333;
+    --button-color: #4CAF50;
+    --button-hover: #45a049;
+    --button-stop: #f44336;
+    --button-stop-hover: #d32f2f;
+    --button-reset: #ff9800;
+    --button-reset-hover: #e68900;
+    --button-lap: #2196F3;
+    --button-lap-hover: #0b7dda;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --container-bg: #ffffff;
+}
+
+.dark-theme {
+    --primary-color: #6d98d9;
+    --secondary-color: #4a7bb8;
+    --background-color: #1a1a2e;
+    --text-color: #f0f0f0;
+    --button-color: #4CAF50;
+    --button-hover: #45a049;
+    --button-stop: #f44336;
+    --button-stop-hover: #d32f2f;
+    --button-reset: #ff9800;
+    --button-reset-hover: #e68900;
+    --button-lap: #2196F3;
+    --button-lap-hover: #0b7dda;
+    --shadow-color: rgba(255, 255, 255, 0.1);
+    --container-bg: #2d2d44;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    background-color: var(--container-bg);
+}
+
+h1 {
+    margin-bottom: 30px;
+    color: var(--primary-color);
+    font-size: 2.5rem;
+}
+
+.timer-display {
+    font-size: 4rem;
+    font-weight: bold;
+    margin: 30px 0;
+    padding: 20px;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    box-shadow: inset 0 0 10px var(--shadow-color);
+    color: var(--primary-color);
+    font-family: 'Courier New', monospace;
+    letter-spacing: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    min-height: 120px;
+    overflow: hidden;
+}
+
+#display {
+    font-size: 4rem;
+}
+
+#milliseconds {
+    font-size: 2rem;
+    color: var(--secondary-color);
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 8px var(--shadow-color);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+button:disabled:hover {
+    transform: none;
+    box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+.start-btn {
+    background-color: var(--button-color);
+    color: white;
+}
+
+.start-btn:hover {
+    background-color: var(--button-hover);
+}
+
+.stop-btn {
+    background-color: var(--button-stop);
+    color: white;
+}
+
+.stop-btn:hover {
+    background-color: var(--button-stop-hover);
+}
+
+.reset-btn {
+    background-color: var(--button-reset);
+    color: white;
+}
+
+.reset-btn:hover {
+    background-color: var(--button-reset-hover);
+}
+
+.lap-btn {
+    background-color: var(--button-lap);
+    color: white;
+}
+
+.lap-btn:hover {
+    background-color: var(--button-lap-hover);
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+.laps-container {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--background-color);
+    box-shadow: inset 0 0 5px var(--shadow-color);
+}
+
+.lap-item {
+    padding: 10px;
+    margin: 5px 0;
+    background-color: var(--container-bg);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Courier New', monospace;
+}
+
+.lap-number {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.lap-time {
+    color: var(--text-color);
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .timer-display {
+        font-size: 3rem;
+    }
+    
+    #display {
+        font-size: 3rem;
+    }
+    
+    #milliseconds {
+        font-size: 1.5rem;
+    }
+    
+    button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .controls {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    .timer-display {
+        font-size: 2.5rem;
+    }
+    
+    #display {
+        font-size: 2.5rem;
+    }
+    
+    #milliseconds {
+        font-size: 1.25rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    button {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+}
